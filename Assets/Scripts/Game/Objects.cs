@@ -45,7 +45,7 @@ public class Objects : MonoBehaviour
     void RecogerObjeto(){
         ObjectManager.Instance.AumentarConteo();
         ObjectManager.Instance.LimpiarMensajeInteraccion();
-        Invoke("DestruirObjeto", 0.2f);
+        DestruirObjeto();
 
     }
 

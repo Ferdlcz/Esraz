@@ -24,7 +24,7 @@ public class CountdownTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 1800;
+        time = 3600;
     }
 
     // Update is called once per frame
