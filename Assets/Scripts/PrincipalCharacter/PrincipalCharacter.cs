@@ -33,6 +33,9 @@ public class PrincipalCharacter : MonoBehaviour
     public float chargeRate;
     public AudioSource parry;
     private Coroutine staminaRegen;
+    public Camera mainCamera;
+    public Camera agachado;
+
     void Move()
     {
         if (Input.GetButton("Fire2"))
@@ -51,6 +54,8 @@ public class PrincipalCharacter : MonoBehaviour
     }
     void Start()
     {
+        mainCamera.gameObject.SetActive(true);
+        agachado.gameObject.SetActive(false);
 
         Instance = this;
 
@@ -145,12 +150,16 @@ public class PrincipalCharacter : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
+            mainCamera.gameObject.SetActive(false);
+            agachado.gameObject.SetActive(true);
             anim.SetBool("Crouch", true);
             movementSpeed = speedCrouch;
             this.transform.localScale = new Vector3(1, 0.60f, 1);
         }
         else
         {
+            mainCamera.gameObject.SetActive(true);
+            agachado.gameObject.SetActive(false);
             anim.SetBool("Crouch", false);
             movementSpeed = initialSpeed;
             this.transform.localScale = new Vector3(1, 1, 1);
